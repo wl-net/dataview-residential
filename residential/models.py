@@ -1,4 +1,5 @@
 from django.db import models
+from dataview.common.models import UUIDModel
 
 class Residence(UUIDModel):
     name = models.CharField(max_length=64)
@@ -9,10 +10,9 @@ class Residence(UUIDModel):
     tenants = models.ManyToManyField('auth.User', blank=True)
 
     def __unicode__(self):
-        return self.name + " " + self.location.city
-
+        return self.name
     def __str__(self):
-        return self.name + " " + self.location.city
+        return self.name
 
 class Neighbor(UUIDModel):
     user = models.ForeignKey('auth.User', editable=False)

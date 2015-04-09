@@ -8,7 +8,7 @@ class ResidenceAdmin(admin.ModelAdmin):
 admin.site.register(Residence, ResidenceAdmin)
 
 class NeighborAdmin(admin.ModelAdmin):
-    list_display = ('first_name', 'last_name', 'location')
+    list_display = ('first_name', 'last_name')
     pass
 
 admin.site.register(Neighbor, NeighborAdmin)
