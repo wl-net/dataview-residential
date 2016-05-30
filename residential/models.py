@@ -1,5 +1,6 @@
 from django.db import models
-from dataview.common.models import UUIDModel
+from dataview.models import UUIDModel
+
 
 class Residence(UUIDModel):
     name = models.CharField(max_length=64)
@@ -14,6 +15,7 @@ class Residence(UUIDModel):
     def __str__(self):
         return self.name
 
+
 class Neighbor(UUIDModel):
     user = models.ForeignKey('auth.User', editable=False)
 
@@ -26,3 +28,14 @@ class Neighbor(UUIDModel):
 
     def __str__(self):
         return self.first_name + " " + self.last_name
+
+
+class PackageCourier(UUIDModel):
+    name = models.CharField(max_length=128)
+
+
+class Package(UUIDModel):
+    courier = models.ForeignKey(PackageCourier)
+    time = models.DateTimeField()
+    residence = models.ForeignKey(Residence)
+    perishable = models.BooleanField()
