@@ -6,5 +6,5 @@ Installation
 
 ```
 $ git clone https://github.com/wl-net/dataview-residential.git
-$ ln -s dataview-residential/residential path/to/dataview/
+$ ln -s `pwd`/dataview-residential/residential path/to/dataview/
 ```
